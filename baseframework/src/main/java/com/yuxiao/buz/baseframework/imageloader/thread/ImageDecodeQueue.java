@@ -21,12 +21,6 @@ import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.LinkedBlockingDeque;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月28日
- */
 public class ImageDecodeQueue {
 
     OnDecodeFinishListener onDecodeFinishListener;

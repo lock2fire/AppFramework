@@ -6,12 +6,6 @@ import android.os.StatFs;
 
 import java.io.File;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月16日
- */
 public class FileUtil {
     final static int MIN_AVAILABLE_DISK_SIZE_IN_M = 50; // 50M
     final static int AVAILABLE_DISK_SIZE = 50*1024*1024; // 50M
@@ -95,7 +89,7 @@ public class FileUtil {
     // -------- other -----------------
     public static long getFreeSize(String path) {
         StatFs sf = new StatFs(path);
-        // 获取单个数据块的大小(Byte)
+        // single block size(Byte)
         long blockSize = 1024;
         try {
             blockSize = sf.getBlockSize();
@@ -108,7 +102,7 @@ public class FileUtil {
                 }
             }
         }
-        // 空闲的数据块的数量
+        // free block count
         long freeBlocks = AVAILABLE_DISK_SIZE;
         try {
             freeBlocks = sf.getAvailableBlocks();
@@ -121,9 +115,8 @@ public class FileUtil {
                 }
             }
         }
-        // 返回SD卡空闲大小
-        // return freeBlocks * blockSize; //单位Byte
-        // return (freeBlocks * blockSize)/1024; //单位KB
-        return (freeBlocks * blockSize) / 1024 / 1024; // 单位MB
+        // return freeBlocks * blockSize; // unit Byte
+        // return (freeBlocks * blockSize)/1024; //unit KB
+        return (freeBlocks * blockSize) / 1024 / 1024; // unit MB
     }
 }

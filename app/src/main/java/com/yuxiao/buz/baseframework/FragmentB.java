@@ -10,12 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月27日
- */
 public class FragmentB extends Fragment {
 
     int count =0;

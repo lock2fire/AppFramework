@@ -21,12 +21,6 @@ import java.util.zip.GZIPInputStream;
 
 import javax.net.ssl.HttpsURLConnection;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月17日
- */
 public class HttpRunner {
     private HttpRunner(){super();}
 

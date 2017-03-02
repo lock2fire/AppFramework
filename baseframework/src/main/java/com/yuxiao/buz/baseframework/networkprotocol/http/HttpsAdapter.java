@@ -11,9 +11,6 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-/**
- * Created by yu.xiao on 2016/3/30.
- */
 public class HttpsAdapter
 {
     private static HttpsAdapter mInstance;

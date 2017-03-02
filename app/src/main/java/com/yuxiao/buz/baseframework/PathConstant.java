@@ -1,11 +1,5 @@
 package com.yuxiao.buz.baseframework;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月16日
- */
 interface PathConstant {
     static String PIC_ = "pic/";
     static String DATA_ = "data/";

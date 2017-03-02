@@ -27,12 +27,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月28日
- */
 class ImageManager {
 
     private static final int INTERVAL_TIME = 16;
@@ -130,7 +124,7 @@ class ImageManager {
         targetImgView.setTag(TAG_INT, url);
 
         synchronized (ImageManager.this) {
-            // 把targetImgView从在之前的通知队列中移除掉
+            // remove targetView from previous notification list
             if(lastUrl != null) {
                 List<WeakReference<ImageView>> lastImageViewsList = imageViewsMap.get(lastUrl);
                 Iterator<WeakReference<ImageView>> iterator = lastImageViewsList.iterator();
@@ -142,7 +136,7 @@ class ImageManager {
                     }
                 }
             }
-            // 加入到新的通知队列中
+            // add targetView to new notification list
             List<WeakReference<ImageView>> imageViewsList = imageViewsMap.get(url);
             if(imageViewsList != null) {
                 boolean isExist = false;
@@ -182,14 +176,14 @@ class ImageManager {
     OnBitmapCacheListener onBitmapCacheListener = new OnBitmapCacheListener() {
         @Override
         public void onBitmapRetrieved(ImageTask imageTask) {
-            // 或者得到bitmap通知UI, 或者加入downloadQueue
             if(imageTask != null) {
+                // if bitmap is ready, send to UI handler
                 Reference<Bitmap> weakReference = imageTask.bitmapWeakReference;
                 if(weakReference != null && weakReference.get() != null) {
                     deliveryToUI(imageTask);
                 } else {
-                    // 没有从缓存获取到Bitmap
-                    // 判断是否是本地文件读取
+                    // if load the local bitmap, add to decode queue directly
+                    // otherwise, add to download queue
                     if(imageTask.isLocal) {
                         imageDecodeQueue.addDecodeImageTask(imageTask);
                     } else {
@@ -201,7 +195,9 @@ class ImageManager {
                             if(file.isFile() && file.exists() && file.length() > 0) {
                                 imageDecodeQueue.addDecodeImageTask(imageTask);
                             } else {
-                                // 数据库显示为已下载，但实际上并没有找到文件，则重新下载
+                                // the status in database shows the file is already downloaded
+                                // but actually there's no such file existed.
+                                // just delete and redownload
                                 file.delete();
                                 imageDownloadQueue.addDownloadImgTask(imageTask);
                             }

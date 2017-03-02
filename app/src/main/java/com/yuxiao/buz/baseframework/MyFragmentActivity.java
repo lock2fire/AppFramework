@@ -7,12 +7,6 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月27日
- */
 public class MyFragmentActivity extends FragmentActivity {
 
     @Override

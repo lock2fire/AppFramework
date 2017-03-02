@@ -18,12 +18,6 @@ import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.LinkedBlockingDeque;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月28日
- */
 public class ImageDownloadQueue {
 
     int threadNum = 1;
@@ -104,7 +98,7 @@ public class ImageDownloadQueue {
         OnExceptionListener onExceptionListener = new OnExceptionListener() {
             @Override
             public void onHttpException(String url, HashMap<String, String> httpHeaders, HashMap<String, String> parameters, boolean isRequestWithPost, Object extra, HttpRunner.EHttpState state, String stateDes) {
-                // 如果下载失败把状态值设置为-1，但是在测试阶段可以先设置为0
+                // should set status to -1 if failure to download, but not we just set to 0
                 ImageDBManager.getInstance(null).updateImageStatus((ImageTask) extra, 0); // -1;
                 if(onDownloadFinishListener != null) {
                     onDownloadFinishListener.downloadFinish(EImageStateType.EDownloaded, (ImageTask) extra);

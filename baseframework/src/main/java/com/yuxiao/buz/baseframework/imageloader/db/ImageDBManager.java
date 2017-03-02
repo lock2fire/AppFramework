@@ -1,6 +1,3 @@
-/*
-*online image state database
- */
 package com.yuxiao.buz.baseframework.imageloader.db;
 
 import android.content.ContentValues;
@@ -15,9 +12,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-/**
- * Created by yu.xiao on 2016/5/25.
- */
 public class ImageDBManager
 {
     private static ImageDBManager mInstance;
@@ -31,13 +25,6 @@ public class ImageDBManager
     private final String KColon = ":";
     private final String KColonReplace = "[colon]";
 
-    /**
-     * @description constructor
-     * @author yu.xiao
-     * @createDate 2016-06-20
-     * @param context
-     * @return
-     */
     private ImageDBManager(Context context)
     {
         if(context != null)
@@ -56,13 +43,6 @@ public class ImageDBManager
         }
     }
 
-    /**
-     * @description get instance
-     * @author yu.xiao
-     * @createDate 2016-06-20
-     * @param context
-     * @return ImageDBManager
-     */
     public static ImageDBManager getInstance(Context context)
     {
         if(mInstance == null ||
@@ -74,13 +54,6 @@ public class ImageDBManager
         return mInstance;
     }
 
-    /**
-     * @description add image
-     * @author yu.xiao
-     * @createDate 2016-06-20
-     * @param imageTask
-     * @return true succeeded, false failed
-     */
     public boolean addImage(ImageTask imageTask)
     {
         if(mDBHelper == null ||
@@ -178,14 +151,6 @@ public class ImageDBManager
         return false;
     }
 
-
-    /**
-     * @description request image data
-     * @author yu.xiao
-     * @createDate 2016-06-20
-     * @param imageTask
-     * @return ImageData
-     */
     public int readImageTaskStatus(ImageTask imageTask)
     {
         if(mDBHelper == null ||
@@ -231,7 +196,7 @@ public class ImageDBManager
                     cursor.close();
                 }
 
-                return status; // 不存在
+                return status; // not exist
             }
 
             status = cursor.getInt(cursor.getColumnIndex(ImageDBHelper.KCacheStatus));
@@ -247,13 +212,6 @@ public class ImageDBManager
         return status;
     }
 
-    /**
-     * @description update image data
-     * @author yu.xiao
-     * @createDate 2016-06-20
-     * @param imageTask
-     * @return true succeeded, false failed
-     */
     public boolean updateImageStatus(ImageTask imageTask, int status)
     {
         if(mDBHelper == null ||
@@ -322,13 +280,6 @@ public class ImageDBManager
         return true;
     }
 
-    /**
-     * @description remove image data
-     * @author yu.xiao
-     * @createDate 2016-06-20
-     * @param imageTask
-     * @return true succeeded, false failed
-     */
     public boolean removeImage(ImageTask imageTask)
     {
         if(mDBHelper == null ||
@@ -367,12 +318,6 @@ public class ImageDBManager
         return true;
     }
 
-    /**
-     * @description remove all image datas
-     * @author yu.xiao
-     * @createDate 2016-06-20
-     * @return
-     */
     public void removeAllImage()
     {
         if(mDBHelper == null)
@@ -402,13 +347,6 @@ public class ImageDBManager
 
     }
 
-    /**
-     * @description encode string map tp string
-     * @author yu.xiao
-     * @createDate 2016-06-20
-     * @param sourceStrMap
-     * @return String
-     */
     private String encodeStrMap(HashMap<String, String> sourceStrMap)
     {
         if(sourceStrMap == null ||
@@ -461,13 +399,6 @@ public class ImageDBManager
         return encodedStrBuffer.toString();
     }
 
-    /**
-     * @description decode string to string map
-     * @author yu.xiao
-     * @createDate 2016-06-20
-     * @param sourceStrMapStr
-     * @return HashMap<String, String>
-     */
     private HashMap<String, String> decodeStrMapStr(String sourceStrMapStr)
     {
         if(sourceStrMapStr == null ||
@@ -556,12 +487,6 @@ public class ImageDBManager
         return targetStrMap;
     }
 
-    /**
-     * @description close database
-     * @author yu.xiao
-     * @createDate 2016-06-20
-     * @return String
-     */
     public void closeDB()
     {
         if(mDataBase == null)
@@ -596,7 +521,7 @@ public class ImageDBManager
         public static final String KResWidth = "onlinereswith";
         public static final String ResHeight = "onlineresheight";
         public static final String KIsOnlineResCached = "isonlinerescached";
-        public static final String KCacheStatus = "cachestatus"; // -1下载失败，0 未下载，1下载中，2已下载
+        public static final String KCacheStatus = "cachestatus"; // -1 fail,0 initial,1 downloading,2 downloaded
 
 //        /**
 //         * @description decode string to string map
@@ -624,16 +549,6 @@ public class ImageDBManager
 //	        }
 //	    }
 
-        /**
-         * @description constructor
-         * @author yu.xiao
-         * @createDate 2016-06-20
-         * @param context
-         * @param name
-         * @param factory
-         * @param version
-         * @return
-         */
         public ImageDBHelper(
                 Context context,
                 String name,
@@ -648,13 +563,6 @@ public class ImageDBManager
             }
         }
 
-        /**
-         * @description constructor
-         * @author yu.xiao
-         * @createDate 2016-06-20
-         * @param context
-         * @return
-         */
         public ImageDBHelper(Context context)
         {
             super(context, KDBNameStr, null, KDBVersion);
@@ -666,26 +574,11 @@ public class ImageDBManager
         }
 
         @Override
-        /**
-         * @description override function
-         * @author yu.xiao
-         * @createDate 2016-06-20
-         * @param db
-         * @return
-         */
         public void onCreate(SQLiteDatabase db)
         {
             checkDBTable(db);
         }
 
-
-        /**
-         * @description check and create database table
-         * @author yu.xiao
-         * @createDate 2016-06-20
-         * @param db
-         * @return
-         */
         private void checkDBTable(SQLiteDatabase db)
         {
             if(db == null)
@@ -749,27 +642,11 @@ public class ImageDBManager
         }
 
         @Override
-        /**
-         * @description open override function
-         * @author yu.xiao
-         * @createDate 2016-06-20
-         * @param db
-         * @return
-         */
         public void onOpen(SQLiteDatabase db)
         {
         }
 
         @Override
-        /**
-         * @description upgrade override function
-         * @author yu.xiao
-         * @createDate 2016-06-20
-         * @param db
-         * @param oldVersion
-         * @param newVersion
-         * @return
-         */
         public void onUpgrade(
                 SQLiteDatabase db,
                 int oldVersion,

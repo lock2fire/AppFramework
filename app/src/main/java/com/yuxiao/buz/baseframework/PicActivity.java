@@ -13,12 +13,6 @@ import com.yuxiao.buz.baseframework.imageloader.Cavalli;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年03月01日
- */
 public class PicActivity extends FragmentActivity {
 
     static final String[] PICS = {

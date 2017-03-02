@@ -4,13 +4,6 @@ import com.yuxiao.buz.baseframework.networkprotocol.http.HttpRunner;
 
 import java.util.HashMap;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月28日
- */
-
 public interface OnExceptionListener
 {
     void onHttpException(

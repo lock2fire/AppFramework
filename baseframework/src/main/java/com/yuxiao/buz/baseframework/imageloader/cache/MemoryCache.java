@@ -29,21 +29,16 @@ import android.support.v4.util.LruCache;
 
 import com.yuxiao.buz.baseframework.imageloader.entity.ImageTask;
 
-/**
- * 图片的内存缓存,key为图片的uri,值为图片本身
- * 
- * @author mrsimple
- */
 public class MemoryCache implements BitmapCache {
 
     private LruCache<String, Bitmap> mMemeryCache;
 
     public MemoryCache() {
 
-        // 计算可使用的最大内存
+        // calcu the max memory we can use
         final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
 
-        // 取4分之一的可用内存作为缓存
+        // take quater to use
         final int cacheSize = maxMemory / 4;
         mMemeryCache = new LruCache<String, Bitmap>(cacheSize) {
 

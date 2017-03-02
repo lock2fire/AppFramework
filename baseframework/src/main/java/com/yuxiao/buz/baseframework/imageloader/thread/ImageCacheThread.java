@@ -15,12 +15,6 @@ import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.LinkedBlockingDeque;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月28日
- */
 public class ImageCacheThread extends Thread {
 
     BlockingDeque<ImageTask> blockingDeque = new LinkedBlockingDeque<>();
@@ -69,7 +63,7 @@ public class ImageCacheThread extends Thread {
 
         while (true) {
 
-            // 首先把还没有保存到cache中的bitmap保存到cache中
+            // first of all, put bitmap to cache in the waiting list
             Iterator<ImageTask> iterator = saveBitmapCacheList.iterator();
             while (iterator.hasNext()) {
                 ImageTask saveImageTask = iterator.next();
@@ -85,7 +79,7 @@ public class ImageCacheThread extends Thread {
             try {
                 ImageTask imageTask = blockingDeque.takeLast();
 
-                String fileName = MD5Util.MD5(imageTask.imageUri); // 在这里做MD5编码不占用主线程
+                String fileName = MD5Util.MD5(imageTask.imageUri); // put here to encode to not block UI thread
                 imageTask.md5 = fileName;
 
                 if(imageTask == null) {

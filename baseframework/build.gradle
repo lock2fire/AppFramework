@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin:'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 24
@@ -28,4 +30,13 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
+}
+
+publish {
+    userOrg = 'lock2fire'
+    groupId = 'com.yuxiao.buz.baseframework'
+    artifactId = 'appframeworklibrary'
+    version = '1.0.0'
+    description = 'Super duper easy way to release your Android and other artifacts to bintray'
+    website = "https://github.com/lock2fire/AppFrameworkLibrary"
 }

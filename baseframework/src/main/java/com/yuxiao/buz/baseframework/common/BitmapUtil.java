@@ -13,12 +13,6 @@ import java.io.InputStream;
 import static android.R.attr.bitmap;
 import static android.R.attr.cacheColorHint;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月16日
- */
 public class BitmapUtil {
 
     // --------------- save bitmap to file -----------

@@ -1,11 +1,5 @@
 package com.yuxiao.buz.baseframework.imageloader.delegate;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月28日
- */
 public enum EImageStateType
 {
     EParaIllegal(-5),

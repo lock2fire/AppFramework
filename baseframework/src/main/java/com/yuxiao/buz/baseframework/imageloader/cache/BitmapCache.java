@@ -29,25 +29,12 @@ import android.graphics.Bitmap;
 import com.yuxiao.buz.baseframework.imageloader.entity.ImageTask;
 
 
-/**
- * 图片缓存抽象类,具体的子类有不使用缓存{@see NoCache}、内存缓存{@see MemoryCache}、sd卡缓存{@see
- * DiskCache}以及内存和sd卡双缓存{@see DoubleCache}
- * 
- * @author mrsimple
- */
-/**
- * 请求缓存接口
- * 
- * @author mrsimple
- * @param <K> key的类型
- * @param <V> value类型
- */
 public interface BitmapCache {
 
-    public Bitmap get(ImageTask key);
+    Bitmap get(ImageTask key);
 
-    public void put(ImageTask key, Bitmap value);
+    void put(ImageTask key, Bitmap value);
 
-    public void remove(ImageTask key);
+    void remove(ImageTask key);
 
 }

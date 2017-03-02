@@ -2,12 +2,6 @@ package com.yuxiao.buz.baseframework.networkprotocol.http.protocol;
 
 import java.util.HashMap;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月28日
- */
 public interface OnReceiveResponseListener
 {
     void onReceiveResponse(

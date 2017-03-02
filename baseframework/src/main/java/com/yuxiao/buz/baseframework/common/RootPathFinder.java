@@ -5,12 +5,6 @@ import android.os.Environment;
 
 import java.io.File;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月16日
- */
 public class RootPathFinder {
     static String packageName = null;
 

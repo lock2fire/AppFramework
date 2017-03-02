@@ -2,12 +2,6 @@ package com.yuxiao.buz.baseframework.common;
 
 import java.security.MessageDigest;
 
-/**
- * @author yu.xiao
- * @version 1.0
- * @description
- * @createDate 2017年02月16日
- */
 public final class MD5Util {
     private static final char[] hexDigits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
