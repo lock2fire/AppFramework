@@ -127,12 +127,14 @@ class ImageManager {
             // remove targetView from previous notification list
             if(lastUrl != null) {
                 List<WeakReference<ImageView>> lastImageViewsList = imageViewsMap.get(lastUrl);
-                Iterator<WeakReference<ImageView>> iterator = lastImageViewsList.iterator();
-                while (iterator.hasNext()) {
-                    ImageView imageView = iterator.next().get();
-                    if(targetImgView == imageView) {
-                        iterator.remove();
-                        break;
+                if(lastImageViewsList != null) {
+                    Iterator<WeakReference<ImageView>> iterator = lastImageViewsList.iterator();
+                    while (iterator.hasNext()) {
+                        ImageView imageView = iterator.next().get();
+                        if(targetImgView == imageView) {
+                            iterator.remove();
+                            break;
+                        }
                     }
                 }
             }
