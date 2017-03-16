@@ -1,6 +1,5 @@
-package com.yuxiao.buz.baseframework;
+package com.yuxiao.buz.test;
 
-import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,11 +7,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.yuxiao.buz.test.R;
 import com.yuxiao.buz.baseframework.common.BitmapUtil;
 import com.yuxiao.buz.baseframework.common.RootPathFinder;
 import com.yuxiao.buz.baseframework.common.FileUtil;
-
-import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 

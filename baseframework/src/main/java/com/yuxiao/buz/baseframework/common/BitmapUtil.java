@@ -2,16 +2,12 @@ package com.yuxiao.buz.baseframework.common;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Path;
 import android.support.annotation.NonNull;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
-import static android.R.attr.bitmap;
-import static android.R.attr.cacheColorHint;
 
 public class BitmapUtil {
 

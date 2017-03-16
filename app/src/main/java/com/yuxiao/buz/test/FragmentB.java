@@ -1,4 +1,4 @@
-package com.yuxiao.buz.baseframework;
+package com.yuxiao.buz.test;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,12 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class FragmentA extends Fragment {
+public class FragmentB extends Fragment {
+
+    int count =0;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        count++;
         TextView view = new TextView(getActivity());
-        view.setText("A");
+        view.setText("B"+count);
         return view;
     }
 
@@ -46,5 +49,10 @@ public class FragmentA extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
     }
 }

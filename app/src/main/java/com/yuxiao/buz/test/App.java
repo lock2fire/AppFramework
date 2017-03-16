@@ -1,4 +1,4 @@
-package com.yuxiao.buz.baseframework;
+package com.yuxiao.buz.test;
 
 import android.app.Application;
 
@@ -10,7 +10,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         RootPathFinder.init(this, PathConstant.PATHS);
-        Cavalli.setSavePath(RootPathFinder.getRootPath(this)+PathConstant.PIC_);
+        Cavalli.setSavePath(RootPathFinder.getOwnerPath(this)+PathConstant.PIC_);
         Cavalli.start(this);
     }
 }

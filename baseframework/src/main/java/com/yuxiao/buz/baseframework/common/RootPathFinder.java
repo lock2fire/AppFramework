@@ -2,6 +2,7 @@ package com.yuxiao.buz.baseframework.common;
 
 import android.content.Context;
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
 
@@ -12,9 +13,14 @@ public class RootPathFinder {
         setPackageName(context);
         if(paths != null) {
             for (String path : paths) {
-                FileUtil.mkDir(getOwnerPath(context)+path);
+                String createPath = getOwnerPath(context)+path;
+                boolean b = FileUtil.mkDir(createPath);
+                Log.i("rootpathfinder", "createOwnerPath:"+createPath+" is "+b);
                 if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
-                    FileUtil.mkDir(getRootPath(context)+path);
+                    // failed on 6.0, should request permission manually
+                    createPath = getExternalStorageDirectory()+path;
+                    b = FileUtil.mkDir(createPath);
+                    Log.i("rootpathfinder", "createExtPath:"+createPath+" is "+b);
                 }
             }
         }
@@ -43,11 +49,11 @@ public class RootPathFinder {
         return path;
     }
 
-    private static String getOwnerPath(Context context){
+    public static String getOwnerPath(Context context){
         return context.getFilesDir().toString()+File.separator;
     }
 
-    private static String getExternalStorageDirectory() {
+    public static String getExternalStorageDirectory() {
         return Environment.getExternalStorageDirectory().getAbsolutePath()
                 + File.separator + packageName + File.separator;
     }

@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.ImageView;
 
+import com.yuxiao.buz.baseframework.R;
 import com.yuxiao.buz.baseframework.imageloader.cache.MemoryCache;
 import com.yuxiao.buz.baseframework.imageloader.db.ImageDBManager;
 import com.yuxiao.buz.baseframework.imageloader.delegate.EImageStateType;

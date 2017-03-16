@@ -1,12 +1,9 @@
 package com.yuxiao.buz.baseframework.imageloader.entity;
 
 import android.graphics.Bitmap;
-import android.widget.ImageView;
 
 import java.lang.ref.Reference;
-import java.lang.ref.WeakReference;
 import java.util.HashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ImageTask {
     public Reference<Bitmap> bitmapWeakReference;

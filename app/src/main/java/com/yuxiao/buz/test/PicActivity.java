@@ -1,4 +1,4 @@
-package com.yuxiao.buz.baseframework;
+package com.yuxiao.buz.test;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.yuxiao.buz.test.R;
 import com.yuxiao.buz.baseframework.imageloader.Cavalli;
 
 import java.util.ArrayList;

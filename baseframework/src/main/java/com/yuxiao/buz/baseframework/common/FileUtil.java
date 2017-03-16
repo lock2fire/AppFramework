@@ -1,7 +1,6 @@
 package com.yuxiao.buz.baseframework.common;
 
 import android.os.Build;
-import android.os.Environment;
 import android.os.StatFs;
 
 import java.io.File;

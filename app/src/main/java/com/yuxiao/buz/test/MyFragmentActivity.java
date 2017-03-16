@@ -1,4 +1,4 @@
-package com.yuxiao.buz.baseframework;
+package com.yuxiao.buz.test;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
+
+import com.yuxiao.buz.test.R;
 
 public class MyFragmentActivity extends FragmentActivity {
 
