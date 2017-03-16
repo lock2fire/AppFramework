@@ -40,7 +40,7 @@ publish {
     userOrg = 'lock2fire'
     groupId = 'com.yuxiao.buz.baseframework'
     artifactId = 'appframeworklibrary'
-    version = '1.0.1'
+    version = '1.0.2'
     description = 'Super duper easy way to release your Android and other artifacts to bintray'
     website = "https://github.com/lock2fire/AppFrameworkLibrary"
 }
